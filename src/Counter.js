@@ -28,7 +28,8 @@ import React, { useState } from "react";
 
 // hook只能在函数组件内用
 // useState
-function Counter() {
+function Counter(props) {
+  console.log(props, 123123);
   // useState可以写多个,卸载函数组件的最顶层，不能写在条件语句
   const [count, setCount] = useState(0);
   function handleClick() {

@@ -9,8 +9,8 @@
             return (
             <Router>
                 <div>
-                <Route exact path="/" component={Home} />
-                <Route path="/about" component={About} />
+                    <Route exact path="/" component={Home} />
+                    <Route path="/about" component={About} />
                 </div>
             </Router>
             );
@@ -77,3 +77,29 @@
     - activeClassName:string,被选中时添加的类名
     - activeStyle:object,被选中时添加的行内样式
     - exact:boolean,严格匹配
+
+6. `<Redirect to="..." />`
+
+    - 当被挂载时，将路由重定向为to属性指定的地址
+    - `<Route path="/home" render={()=><Redirect to="/other" />} />`
+    - from和exact两个属性只能用在`<Switch />`组件下的`<Redirect />`
+
+
+    ```javascript
+        <Switch>
+            <Redirect from="/old" to="/new" />        
+            <Route path="/new" component={New} />
+        </Switch>
+    ```
+
+### 动态路由
+
+1. 路由配置
+   - `<Route path="/content/:id" component={Content} />`
+   - `<Link to={"/content/1"}>{item.title}</Link>`
+
+2. 数据接收
+   - match对象
+     - 一个包含`<Route path=">`匹配路径参信息的对象
+     - params
+     - url、path、isExact

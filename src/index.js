@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { HashRouter as Router, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Route, Link, NavLink } from "react-router-dom";
 
 import Counter from "./Counter";
 import ShowTime from "./ShowTime";
+import Content from "./Router/Content";
+import NoMatch from "./NoMatch";
 // hooks(代替类组件的一些功能)
 // 声明组件
 // 函数组件(无状态组件,无生命周期,适合做UI组件)
@@ -16,18 +18,65 @@ ReactDOM.render(
     <div>
       <ul>
         <li>
-          <Link to="/counter">Counter</Link>
+          <NavLink
+            activeStyle={{
+              background: "red",
+              color: "#fff"
+            }}
+            to={{
+              pathname: "/counter",
+              state: {
+                id: 1
+              },
+              search: "?search=1"
+            }}
+          >
+            Counter
+          </NavLink>
         </li>
         <li>
-          <Link to="/showtime/1">ShowTime1</Link>
+          <NavLink
+            to="/showtime/1"
+            activeStyle={{
+              background: "red",
+              color: "#fff"
+            }}
+          >
+            ShowTime1
+          </NavLink>
         </li>
         <li>
-          <Link to="/showtime/2">ShowTime2</Link>
+          <NavLink
+            to="/showtime/2"
+            activeStyle={{
+              background: "red",
+              color: "#fff"
+            }}
+          >
+            ShowTime2
+          </NavLink>
         </li>
+        {[0, 1, 2, 3, 4].map(item => (
+          <li key={item}>
+            <NavLink
+              to="/content"
+              activeStyle={{
+                background: "red",
+                color: "#fff"
+              }}
+            >
+              帖子{item}
+            </NavLink>
+          </li>
+        ))}
       </ul>
       <div>
         <Route path="/counter" component={Counter} />
         <Route path="/showtime/:page" component={ShowTime} />
+        <Route path="/content" component={Content} />
+        <Route>
+          <NoMatch />
+        </Route>
       </div>
     </div>
   </Router>,
