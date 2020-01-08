@@ -17,13 +17,17 @@ ReactDOM.render(
       <ul>
         <li>
           <Link to="/counter">Counter</Link>
-          <br />
-          <Link to="/showtime">ShowTime</Link>
+        </li>
+        <li>
+          <Link to="/showtime/1">ShowTime1</Link>
+        </li>
+        <li>
+          <Link to="/showtime/2">ShowTime2</Link>
         </li>
       </ul>
       <div>
         <Route path="/counter" component={Counter} />
-        <Route path="/showtime" component={ShowTime} />
+        <Route path="/showtime/:page" component={ShowTime} />
       </div>
     </div>
   </Router>,
