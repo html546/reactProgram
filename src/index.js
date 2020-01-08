@@ -1,20 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-// import App from "./App";
-import Parent from "./Context/Parent";
-import * as serviceWorker from "./serviceWorker";
+// import Counter from "./Counter";
+import ShowTime from "./ShowTime";
+// hooks(代替类组件的一些功能)
+// 声明组件
+// 函数组件(无状态组件,无生命周期,适合做UI组件)
+// 属性(props)是只读的，不能修改
 
-import { Provider } from "./Context/Context";
-let color = "red";
-ReactDOM.render(
-  <Provider value={color}>
-    <Parent />
-  </Provider>,
-  document.getElementById("root")
-);
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// 声明一个组件,点击按钮，实现加1的功能
+// 声明一个类组件(state是类组件特有的，只能在当前组件用，存储当前组件的数据用)
+ReactDOM.render(<ShowTime />, document.getElementById("root"));
