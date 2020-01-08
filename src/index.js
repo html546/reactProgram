@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import Counter from "./Counter";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import Counter from "./Counter";
 import ShowTime from "./ShowTime";
 // hooks(代替类组件的一些功能)
 // 声明组件
@@ -9,4 +11,21 @@ import ShowTime from "./ShowTime";
 
 // 声明一个组件,点击按钮，实现加1的功能
 // 声明一个类组件(state是类组件特有的，只能在当前组件用，存储当前组件的数据用)
-ReactDOM.render(<ShowTime />, document.getElementById("root"));
+ReactDOM.render(
+  <Router>
+    <div>
+      <ul>
+        <li>
+          <Link to="/counter">Counter</Link>
+          <br />
+          <Link to="/showtime">ShowTime</Link>
+        </li>
+      </ul>
+      <div>
+        <Route path="/counter" component={Counter} />
+        <Route path="/showtime" component={ShowTime} />
+      </div>
+    </div>
+  </Router>,
+  document.getElementById("root")
+);

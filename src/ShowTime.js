@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+/* import React, { Component } from "react";
 
 class ShowTime extends Component {
   state = {
@@ -21,22 +21,24 @@ class ShowTime extends Component {
   }
 }
 
-export default ShowTime;
+export default ShowTime; */
 
-/* import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 function ShowTime() {
   const [time, setTime] = useState(new Date().toLocaleString());
+  //   useEffect能代替componentDidMount和componentDidUpdate
+  //   还能代替componentWillUnmount
   useEffect(() => {
+    console.log(1);
+    let timer = setInterval(() => {
+      setTime(new Date().toLocaleString());
+    }, 1000);
     return () => {
-      console.log(time);
+      clearInterval(timer);
     };
-  }, [time]);
-  setInterval(() => {
-    setTime(new Date().toLocaleString());
-  }, 1000);
+  }, []);
   return <div>当前时间是:{time}</div>;
 }
 
 export default ShowTime;
- */
