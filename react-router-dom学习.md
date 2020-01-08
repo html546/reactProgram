@@ -52,3 +52,28 @@
                     <Route component={NoMatch} />
                 <Switch>
         ```
+4. `<Link to= "..." >...</Link>`
+    - to：string
+
+    ```javascript
+        <Link to="/home">Home</Link>
+    ```
+
+    - to：object
+
+    ```javascript
+        <Link to={{
+            pathname:'/course'
+            search:"?sort=name",
+            hash:"#the-hash",
+            state:{id:1}
+            <!-- 传到组件的数据，通过this.props.location.state获取 -->
+        }}>Courses</Link>
+    ```
+
+5. `<NavLink to="...">...</NavLink>`
+
+    - NavLink是Link的子类
+    - activeClassName:string,被选中时添加的类名
+    - activeStyle:object,被选中时添加的行内样式
+    - exact:boolean,严格匹配
