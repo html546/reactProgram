@@ -24,7 +24,7 @@ class Counter extends Component {
 
 export default Counter; */
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 // hook只能在函数组件内用
 // useState
