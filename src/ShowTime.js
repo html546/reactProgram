@@ -29,12 +29,14 @@ function ShowTime() {
   const [time, setTime] = useState(new Date().toLocaleString());
   //   useEffect能代替componentDidMount和componentDidUpdate
   //   还能代替componentWillUnmount
+  //   useEffect可以写多个,按需求分开
   useEffect(() => {
-    console.log(1);
     let timer = setInterval(() => {
+      console.log(1);
       setTime(new Date().toLocaleString());
     }, 1000);
     return () => {
+      console.log("unmount");
       clearInterval(timer);
     };
   }, []);
