@@ -26,3 +26,29 @@
 1. BrowserRouter VS HashRouter
     - 都是路由的基本组件,需将其放在最外层,选其一使用
     - 内部只能含有一个子节点
+    - BrowserRouter的URL是指向真实URL的资源路径,页面和浏览器的history保持一致
+    - HashRouter使用URL中的hash(#)部分去创建路由
+  
+
+2.  `<Route/>`讲解
+    - 匹配路径、挂载组件
+    - exact:严格匹配
+    - path:字符串类型,用来匹配url
+    - component:值是一个组件,在path匹配成功后挂载这个组件
+    - render:一个返回组件的方法
+    - children:一个返回组件的方法
+
+3. `<Switch>...</Switch>`讲解
+    -  只会挂载与`<Route>`路径匹配成功的第一个 
+    -  子节点只能是`<Route>`或`<Redirect>`
+    -  使用范例
+
+
+          ```javascript
+                <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route path="/about" component={About} />
+                    <Route path="/:user" component={User} />
+                    <Route component={NoMatch} />
+                <Switch>
+        ```
