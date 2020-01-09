@@ -1,0 +1,94 @@
+@import "~antd/dist/antd.css";
+* {
+  margin: 0;
+  padding: 0;
+}
+ul,
+li {
+  list-style: none;
+}
+body {
+  background: #ddd;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+/* header */
+.headerwrap {
+  width: 100%;
+  height: 50px;
+  background: #444;
+}
+.headerwrap header {
+  width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  overflow: hidden;
+}
+.headerwrap img {
+  width: 120px;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  float: left;
+}
+.headerwrap a {
+  margin: 0 20px;
+  color: #fff;
+}
+
+/* main */
+.main {
+  width: 1200px;
+  margin: 30px auto;
+}
+.content {
+  width: 900px;
+  float: left;
+  background: #fff;
+  color: #333;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.slider {
+  width: 270px;
+  height: 500px;
+  float: right;
+  background-color: green;
+}
+.home .tabs {
+  width: 100%;
+}
+.home .tabs a {
+  display: inline-block;
+  margin: 10px;
+}
+/* list */
+.list li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px 0;
+}
+.list li .avatar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.list li img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.list li .title {
+  margin-left: 30px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 600px;
+}
+.list li .time {
+  margin-left: auto;
+}
