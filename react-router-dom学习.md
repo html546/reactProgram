@@ -103,3 +103,15 @@
      - 一个包含`<Route path=">`匹配路径参信息的对象
      - params
      - url、path、isExact
+
+### 路由get传值
+
+1. 路由配置
+     - `<Route path="/content" component={Content} />`
+     - `<Link to={`/content?id=1`}>{item.title}</Link>`
+
+2. 数据接收
+     - 数据存放在this.props.location.search
+     - 通过URL模块解析
+       - npm install url -save
+       - url.parse(urlStr:string,parseQueryStr:true) 

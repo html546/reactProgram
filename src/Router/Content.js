@@ -1,5 +1,6 @@
 import React from "react";
-
-export default function Content() {
-  return <div>Content</div>;
+// 无状态组件
+export default function Content(props) {
+  console.log(props);
+  return <div>Content {props.match.params.id}</div>;
 }

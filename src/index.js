@@ -1,6 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { HashRouter as Router, Route, Link, NavLink } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Route,
+  Link,
+  NavLink,
+  Switch
+} from "react-router-dom";
 
 import Counter from "./Counter";
 import ShowTime from "./ShowTime";
@@ -59,7 +65,7 @@ ReactDOM.render(
         {[0, 1, 2, 3, 4].map(item => (
           <li key={item}>
             <NavLink
-              to="/content"
+              to={"/content/" + item}
               activeStyle={{
                 background: "red",
                 color: "#fff"
@@ -71,12 +77,14 @@ ReactDOM.render(
         ))}
       </ul>
       <div>
-        <Route path="/counter" component={Counter} />
-        <Route path="/showtime/:page" component={ShowTime} />
-        <Route path="/content" component={Content} />
-        <Route>
-          <NoMatch />
-        </Route>
+        <Switch>
+          <Route path="/counter" component={Counter} />
+          <Route path="/showtime/:page" component={ShowTime} />
+          <Route path="/content/:id" component={Content} />
+          <Route>
+            <NoMatch />
+          </Route>
+        </Switch>
       </div>
     </div>
   </Router>,
