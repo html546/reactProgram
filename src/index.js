@@ -5,13 +5,15 @@ import {
   Route,
   Link,
   NavLink,
-  Switch
+  Switch,
+  withRouter
 } from "react-router-dom";
 
 import Counter from "./Counter";
 import ShowTime from "./ShowTime";
 import Content from "./Router/Content";
 import NoMatch from "./NoMatch";
+import Hooks from "./Router/Hooks";
 // hooks(代替类组件的一些功能)
 // 声明组件
 // 函数组件(无状态组件,无生命周期,适合做UI组件)
@@ -19,9 +21,18 @@ import NoMatch from "./NoMatch";
 
 // 声明一个组件,点击按钮，实现加1的功能
 // 声明一个类组件(state是类组件特有的，只能在当前组件用，存储当前组件的数据用)
+
+function Login(props) {
+  console.log(props);
+  return <button>登录</button>;
+}
+
+let LoginWithRouter = withRouter(Login);
+
 ReactDOM.render(
   <Router basename="/build">
     <div>
+      <LoginWithRouter />
       <ul>
         <li>
           <NavLink
@@ -81,6 +92,7 @@ ReactDOM.render(
           <Route path="/counter" component={Counter} />
           <Route path="/showtime/:page" component={ShowTime} />
           <Route path="/content/:id" component={Content} />
+          <Route path="/hooks/:id" component={Hooks} />
           <Route>
             <NoMatch />
           </Route>
