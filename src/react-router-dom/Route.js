@@ -10,7 +10,7 @@ export default class Route extends Component {
           let { path, component: Component, exact } = this.props;
           let { pathname } = value.location;
           let reg = pathToReg(path, [], {
-            end: exact
+            end: exact || false
           });
           if (reg.test(pathname)) {
             return <Component {...value} />;

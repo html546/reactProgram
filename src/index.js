@@ -11,8 +11,8 @@ window.onhashchange = function() {
 ReactDOM.render(
   <Router>
     <div>
-      <a href="#/home">首页</a>
-      <a href="#/about">about</a>
+      <Link to="/home">首页</Link>
+      <Link to="/about">about</Link>
       <Route exact path="/home" component={Home} />
       <Route path="/home/:id" component={Home} />
       <Route path="/about" component={About} />
