@@ -1,8 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { HashRouter as Router, Route, Link } from "./react-router-dom";
+import {
+  HashRouter as Router,
+  Route,
+  Link,
+  Redirect,
+  Switch
+} from "./react-router-dom";
 import Home from "./container/Home";
 import About from "./container/About";
+import NoMatch from "./container/NoMatch";
 
 window.onhashchange = function() {
   console.log(window.location.hash);
@@ -13,9 +20,13 @@ ReactDOM.render(
     <div>
       <Link to="/home">首页</Link>
       <Link to="/about">about</Link>
-      <Route exact path="/home" component={Home} />
-      <Route path="/home/:id" component={Home} />
-      <Route path="/about" component={About} />
+      <Switch>
+        <Route exact path="/home" component={Home} />
+        <Route path="/home/:id" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/nomatch" component={NoMatch} />
+        <Redirect to="/nomatch" />
+      </Switch>
     </div>
   </Router>,
   document.getElementById("root")
